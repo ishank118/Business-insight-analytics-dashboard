@@ -26,7 +26,7 @@ This project demonstrates:
 ```sql
 CREATE DATABASE retail_sales_analysis;
 USE retail_sales_analysis;
-
+```
 ---
 
 ## Table Preparation
@@ -43,7 +43,7 @@ ADD PRIMARY KEY (transactions_id);
 
 ALTER TABLE sales 
 RENAME COLUMN ï»¿transactions_id TO transactions_id;
-
+```
 ---
 
 ## Data Cleaning
@@ -62,6 +62,7 @@ WHERE
     OR price_per_unit IS NULL
     OR cogs IS NULL
     OR total_sale IS NULL;
+```
 ### Removing Incomplete Records
 ```sql
 DELETE FROM sales
@@ -76,7 +77,7 @@ WHERE
     OR price_per_unit IS NULL
     OR cogs IS NULL
     OR total_sale IS NULL;
-
+```
 ---
 
 ## Exploratory Data Analysis (EDA)
@@ -96,14 +97,14 @@ SELECT COUNT(DISTINCT customer_id) AS total_users FROM sales;
 SELECT category, COUNT(*) 
 FROM sales
 GROUP BY category;
-
+```
 ## Business Analysis Queries
 **1. Sales on a Specific Date**
 ```sql
 SELECT *
 FROM sales
 WHERE sale_date = '2022-11-05';
-
+```
 **2. Clothing Transactions (Nov 2022, Quantity ≥ 4)**
 ```sql 
 SELECT *
@@ -112,7 +113,7 @@ WHERE category = 'Clothing'
 AND MONTH(sale_date) = 11
 AND YEAR(sale_date) = 2022
 AND quantiy >= 4;
-
+```
 **3. Total Sales by Category**
 ```sql
 SELECT 
@@ -121,19 +122,19 @@ SELECT
     COUNT(*) AS total_orders
 FROM sales
 GROUP BY category;
-
+```
 **4. Average Customer Age (Beauty Category)**
 ```sql
 SELECT AVG(age) AS average_age
 FROM sales
 WHERE category = 'Beauty';
-
+```
 **5. High Value Transactions (> 1000)**
 ```sql
 SELECT *
 FROM sales
 WHERE total_sale > 1000;
-
+```
 **6. Transactions by Gender and Category**
 ```sql
 SELECT 
@@ -142,7 +143,7 @@ SELECT
     COUNT(DISTINCT transactions_id) AS total_orders
 FROM sales
 GROUP BY gender, category;
-
+```
 **7. Best Selling Month Each Year (Window Function)**
 ```sql
 SELECT date_year, date_month, avg_sales
@@ -159,7 +160,7 @@ FROM (
     GROUP BY date_year, date_month
 ) t
 WHERE rank_month = 1;
-
+```
 **8. Top 5 Customers by Total Sales**
 ```sql
 SELECT 
@@ -169,7 +170,7 @@ FROM sales
 GROUP BY customer_id
 ORDER BY total_order_value DESC
 LIMIT 5;
-
+```
 **9. Unique Customers per Category**
 ```sql
 SELECT 
@@ -177,7 +178,7 @@ SELECT
     COUNT(DISTINCT customer_id) AS total_customers
 FROM sales
 GROUP BY category;
-
+```
 **10. Sales by Time Shift (CTE)**
 Shift Categories:
 - Morning: ≤ 12
@@ -199,7 +200,7 @@ SELECT
     COUNT(transactions_id) AS total_orders
 FROM hourly_sales
 GROUP BY shift;
-
+```
 ---
 
 ## Key Insights
