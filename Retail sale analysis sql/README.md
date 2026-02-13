@@ -14,10 +14,10 @@ This project focuses on **data cleaning, exploration, and business analysis** us
 **Table Name:** `sales`
 
 This project demonstrates:
-- Data cleaning and preparation
-- Exploratory Data Analysis (EDA)
-- Business-driven SQL queries
-- Customer and sales insights
+* Data cleaning and preparation
+* Exploratory Data Analysis (EDA)
+* Business-driven SQL queries
+* Customer and sales insights
 
 ---
 
@@ -205,9 +205,9 @@ GROUP BY shift;
 
 ## Key Insights
 
--Identified top revenue-generating customers
--Found high-value transactions
--Determined best-performing months
--Analyzed customer demographics by category
--Evaluated product category performance
--Identified peak sales time using shift analysis
+* Identified top revenue-generating customers
+* Found high-value transactions
+* Determined best-performing months
+* Analyzed customer demographics by category
+* Evaluated product category performance
+* Identified peak sales time using shift analysis
